@@ -5,9 +5,9 @@ APP = flask.Flask(__name__)
 
 class Routes:
     def __init__(self) -> None:
-        self.user_db = {
+        self.user_db = [
             {'username': "alzar", 'password': 'python'}
-        }
+        ]
 
     def route_css(self):
         return flask.render_template("index.html")
