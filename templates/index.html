@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>CSS Stuff</title>
-        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="stylesheet" type="text/css" href="/static/styles.css">
         <script>
 
         </script>
@@ -13,16 +13,35 @@
             <h2>By Arnaud Alzar</h2>
         </header>
         <main>
-            <p>We all know the pain of when Windows decides to update when you want to shut it down. However, with Linux,
+            <p id="windows-update-pain">We all know the pain of when Windows decides to update when you want to shut it down. However, with Linux,
             you dictate when you want to update. <br>But, these updates are not triggered on shutdown.
             Instead, we update using the system's package manager, <a href="https://en.wikipedia.org/wiki/APT_(software)" id="word-apt">APT</a>.
             </p>
-            <p>Why is this important? Well, Linux's ecosystem doesn't simply function off of proprietary software,
+            <p id="is-this-important">Why is this important? Well, Linux's ecosystem doesn't simply function off of proprietary software,
             but instead, by open-source. <br> Linux works thanks to the power of open-sourced software, and thanks
             to that, we don't need to always restart when an update is required. 
             </p>
+            <p id="why-not-windows">Well, why not Windows 10 or 11?
+            Well, if you don't stay in the loop, they are discontinuing Win10, in favor of Windows 11.
+            <br>Last time, they promised us that Windows 10 will be the final OS, and they broke that promise.
+            </p>
+            <p>With Linux, you can control when you want to switch. Lightweight linux distributions
+            give you control on what you want to install. <br>Linux gaming is also slowly but surely increasing,
+            with a lot of support from the community and Valve especially.
+            </p>
+            <p>My favorite Linux distribution is <a href="https://en.wikipedia.org/wiki/Linux_Mint" id="word-mint">Linux Mint.</a>
+            It's a lightweight distribution that has the look and feel of normal Windows 10.
+            </p>
         </main>
         <footer class="footer">
+            <div id="flask-data-div">
+                <form id="flask-data-form">
+                    <p>Authenticate with the flask app for a surprise</p>
+                    <input type="text" name="username" placeholder="Enter username">
+                    <input type="password" name="password" placeholder="Enter password">
+                    <button type="submit">Submit data to flask</button>
+                </form>
+            </div>
             <h5>This website is licensed under the GPLv3 open-source license.</h5>
         </footer>
     </body>
