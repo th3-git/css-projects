@@ -3,9 +3,7 @@
     <head>
         <title>CSS Stuff</title>
         <link rel="stylesheet" type="text/css" href="/static/styles.css">
-        <script>
-
-        </script>
+        <script defer src="/static/script.js"></script>
     </head>
     <body>
         <header class="header">
@@ -35,11 +33,11 @@
         </main>
         <footer class="footer">
             <div id="flask-data-div">
-                <form id="flask-data-form">
-                    <p>Authenticate with the flask app for a surprise</p>
+                <form id="flask-data-form" action="/authenticate" method="POST">
+                    <p>Authenticate with the flask app (example)</p>
                     <input type="text" name="username" placeholder="Enter username">
                     <input type="password" name="password" placeholder="Enter password">
-                    <button type="submit">Submit data to flask</button>
+                    <button id="flask-submit" type="submit">Submit data to flask</button>
                 </form>
             </div>
             <h5>This website is licensed under the GPLv3 open-source license.</h5>

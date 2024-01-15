@@ -1,3 +1,4 @@
+import html
 import json
 import flask
 
@@ -13,15 +14,17 @@ class Routes:
         return flask.render_template("index.html")
     
     def auth_endpoint(self):
-        json_data = flask.request.json
-        username = json_data.get('username')
-        password = json_data.get('password')
+        body = flask.request.form
+        username = body.get('username')
+        password = body.get("password")
 
-        db_entry_alzar = self.user_db[0]
-        if username == db_entry_alzar['username'] and password == db_entry_alzar['password']:
-            return flask.jsonify("User authorized, hello 'alzar'!")
+        if self.user_db[0].get("username") != username:
+            return flask.make_response("INVALID_USER", 400)
         
-        return flask.jsonify("Sorry, not authorized.")
+        if self.user_db[0].get("password") != password:
+            return flask.make_response("INVALID_PASSWORD", 400)
+        
+        return flask.make_response("AUTHORIZED", 200)
     
 if __name__ == "__main__":
     routes = Routes()
