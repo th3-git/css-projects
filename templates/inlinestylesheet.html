@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inline style sheet</title>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const jsOrderedList = document.getElementById('js-list')
+            const colorsArray = [
+                'yellow', 'orange', 'blue', 
+                'green', 'red', 'silver',
+                'gold', 'black', 'indigo',
+                'turquoise'
+            ]
+            const wordsArray = [
+                "Yellow is the sun.", "Orange is a carrot.",
+                "Blue is the sky.", "Green is the grass.",
+                "Red is an apple.", "Silver is a coin.",
+                "Gold is a ring.", "Black is a crow.",
+                "Indigo is a peacock feather.", "Turquoise is a tropical sea."
+            ]
+            for (let i = 0; i<10; i++) {
+                const listElement = document.createElement('li')
+                listElement.style.color = colorsArray[i]
+                listElement.textContent = wordsArray[i]
+                jsOrderedList.appendChild(listElement)
+            }
+            const watermarkDiv = document.getElementById('watermark-data')
+            watermarkDiv.style.textAlign = 'center'
+        })
+    </script>
+</head>
+<body>
+    <p>This first example was typed out individually.</p>
+    <ol>
+        <li style="color: yellow;">Yellow is the sun.</li>
+        <li style="color: orange;">Orange is a carrot.</li>
+        <li style="color: blue;">Blue is the sky.</li>
+        <li style="color: green;">Green is the grass.</li>
+        <li style="color: red;">Red is an apple.</li>
+        <li style="color: silver;">Silver is a coin.</li>
+        <li style="color: gold;">Gold is a ring.</li>
+        <li style="color: black;">Black is a crow.</li>
+        <li style="color: indigo;">Indigo is a peacock feather.</li>
+        <li style="color: turquoise;">Turquoise is a tropical sea.</li>
+    </ol>
+    <p>The second example is by using an internal JS script.</p>
+    <ol id="js-list"></ol>
+    <div id="watermark-data">
+        <h1 id="name-watermark">Created by Arnaud Alzar</h1>
+        <h5 id="proof-work">If you want proof: Check <a href="https://github.com/th3-git/css-projects">https://github.com/th3-git/css-projects</a></h5>
+    </div>
+</body>
+</html>

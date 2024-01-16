@@ -1,5 +1,3 @@
-import html
-import json
 import flask
 
 APP = flask.Flask(__name__)
@@ -12,6 +10,9 @@ class Routes:
 
     def route_css(self):
         return flask.render_template("index.html")
+    
+    def route_inline_css(self):
+        return flask.render_template("inlinestylesheet.html")
     
     def auth_endpoint(self):
         body = flask.request.form
@@ -31,4 +32,6 @@ if __name__ == "__main__":
 
     APP.add_url_rule('/', view_func=routes.route_css)
     APP.add_url_rule('/authenticate', view_func=routes.auth_endpoint, methods=['POST'])
-    APP.run(port=9000)
+    APP.add_url_rule('/inline-css', view_func=routes.route_inline_css)
+
+    APP.run(port=9000, debug=True)
