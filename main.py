@@ -34,4 +34,4 @@ if __name__ == "__main__":
     APP.add_url_rule('/authenticate', view_func=routes.auth_endpoint, methods=['POST'])
     APP.add_url_rule('/inline-css', view_func=routes.route_inline_css)
 
-    APP.run(port=9000, debug=True)
+    APP.run(port=9000, debug=False)
