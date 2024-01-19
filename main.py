@@ -14,6 +14,9 @@ class Routes:
     def route_inline_css(self):
         return flask.render_template("inlinestylesheet.html")
     
+    def route_boxmodel_css(self):
+        return flask.render_template("boxmodel.html")
+
     def auth_endpoint(self):
         body = flask.request.form
         username = body.get('username')
@@ -33,5 +36,6 @@ if __name__ == "__main__":
     APP.add_url_rule('/', view_func=routes.route_css)
     APP.add_url_rule('/authenticate', view_func=routes.auth_endpoint, methods=['POST'])
     APP.add_url_rule('/inline-css', view_func=routes.route_inline_css)
-
+    APP.add_url_rule('/boxmodel', view_func=routes.route_boxmodel_css)
+    
     APP.run(port=9000, debug=False)
