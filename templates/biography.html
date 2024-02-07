@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <title>PasswordManager Autobiography Form</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            
+            #login-title {
+                text-align: center;
+            }
+            
+            main {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #login-div {
+                width: 350px;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin: 0 auto;
+            }
+            
+            #login-div form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            #login-div input {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            
+            #login-div button {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            
+            .login-links {
+                display: flex;
+                align-items: center; /* Add this line to center items vertically */
+                gap: 5px; /* Add some gap between checkbox and text */
+            }
+            
+            .button-container {
+                display: flex;
+                justify-content: space-between; /* Adjust spacing between buttons */
+                gap: 5px;
+            }
+
+            .gender-container {
+                display: flex;
+                justify-content: center; /* Adjust spacing between radio buttons and labels */
+                gap: 10px;
+            }
+
+            .gender-container div {
+                display: flex;
+                align-items: center;
+            }
+
+            .login-anchor {
+                color: #007bff;
+                text-decoration: underline;
+                margin-top: 10px;
+            }
+            #motivation-quote {
+                width: 150px;
+                height: 200px;
+            }
+
+            header {
+                background-color: #333;
+                color: #fff;
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+            }
+            .header-anchor {
+                color: #fff;
+                text-decoration: none;
+                margin: 0 15px;
+            }
+            
+            #header-title {
+                padding-right: 150px;
+            }
+            footer {
+                background-color: #333;
+                color: #fff;
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+            }
+
+            .footer-links {
+                margin: 0 auto;
+            }
+            
+            .footer-anchor {
+                color: #007bff;
+                text-decoration: underline;
+                margin-top: 10px;
+            }
+        </style>
+        <script defer>
+        document.addEventListener("DOMContentLoaded", (e) => {
+            const imgSrc = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3695039.jpg&f=1&nofb=1&ipt=5c7e868348f9bfcc56d4a76e9b9bb80dc6ee1a7b633355b2afc9ecd4843eea5e&ipo=images'
+            const imgElement = document.getElementById('motivation-quote')
+            imgElement.onclick = () => {
+                window.open('https://en.wikiquote.org/wiki/Linus_Torvalds')
+            }
+            imgElement.src = imgSrc
+            imgElement.style.width = 'auto'
+
+            const shareLabel = document.getElementById("tnc-label")
+            shareLabel.onclick = () => {
+                const tncCheckbox = document.getElementById('terms-and-conds')
+                tncCheckbox.checked = !tncCheckbox.checked
+            }
+
+            const bioForm = document.getElementById('login-form')
+            bioForm.onsubmit = (e) => {
+                //e.preventDefault();
+                const formData = new FormData(bioForm)
+                const jsonData = {}
+                formData.forEach(function(value, key) {
+                    if (key === 'gender') {
+                        jsonData[key] = value.text;
+                    }
+                    jsonData[key] = value;
+                });
+                
+                alert(`Submitted successfully!\nMake sure to check the URL at example.com\nmData: ${JSON.stringify(jsonData)}`)
+            }
+        })
+        </script>
+    </head>
+    <body>
+        <header>
+            <div id="header-title">PasswordManager</div>
+            <div><a href="/" class="header-anchor">Home</a></div>
+            <div style="margin-left: auto;">Username</div>
+        </header>
+        <main>
+            <h2 id="login-title">PasswordManager Autobiography Form</h2>
+            <p id="login-status"></p>
+            <div id="login-div">
+                <form name="login-form" id="login-form" method="GET" action="https://example.com">
+                <input name="first-name" placeholder="First Name" type="text">
+
+                <input name="last-name" placeholder="Last Name" type="text">
+
+                <label for="date-of-birth">Enter your date of birth:</label>
+                <input name="date-of-birth" placeholder="MM/DD/YYYY" type="date">
+
+                <input name="email" placeholder="Email Address" type="email">
+                <input name="phone-number" placeholder="Phone Number" type="number">
+                
+                <input type="text" name="place-of-birth" placeholder="Enter your birthplace.">
+                <div class="gender-container">
+                    <div>
+                        <input type="radio" id="gender-male" name="gender">
+                        <label for="gender-male">Male</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="gender-female" name="gender">
+                        <label for="gender-female">Female</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="gender-other" name="gender">
+                        <label for="gender-other">Other</label>
+                    </div>
+                </div>
+                
+                <div class="login-links">
+                    <div>
+                        <input type="checkbox" name="tnc" id="terms-and-conds">
+                    </div>
+                    <label for="tnc" id="tnc-label">Share this information to other people?</label>
+                </div>
+                
+                <div>
+                    <img id="motivation-quote">
+                </div>
+                <div class="button-container">
+                    <button name="submit-form" type="submit">Submit</button>
+                    <button name="reset-form" type="reset">Reset</button>
+                </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <a href="/" class="footer-anchor">Home</a>
+            </div>
+            <div style="margin-left: auto;">Username</div>
+        </footer>
+    </body>
+</html>
