@@ -1,5 +1,5 @@
 import flask
-
+import json
 APP = flask.Flask(__name__)
 
 class Routes:
@@ -17,6 +17,18 @@ class Routes:
     def route_boxmodel_css(self):
         return flask.render_template("boxmodel.html")
 
+    def route_biography_css(self):
+        if flask.request.method == "GET":
+            return flask.render_template('biography.html')
+        
+        with open('biography.json', 'w') as file:
+            form = flask.request.form
+            data = form.to_dict()
+
+            json.dump(data, file)
+        
+        return flask.make_response({'success': True, 'message': 'Stored form data at biography.json!'})
+    
     def auth_endpoint(self):
         body = flask.request.form
         username = body.get('username')
